@@ -1,39 +1,51 @@
-import { useState,useEffect } from "react";
+import {useState,useEffect} from  "react";
 
-type Props = {
-    clearSignal:number;
+type Props ={
+  clearSignal : Props
 };
 
-export default function CopyBox({ clearSignal }: Props) {
-  const [text, setText] = useState<string>("");
-  const [copy, setCopy] = useState<string>("");
 
-  useEffect(() => {
-    setText("");
-    setCopy("");
-  }, [clearSignal]);
+export default function ({clearSignal}:Props){
+  const [text,setText]=useState <string> (" ");
+  const [copy,setCopy]=useState <string> ("");
+
+  useEffect (()=>{
+    setText (""),
+    setCopy ("")
+  },[clearSignal])
 
   return (
     <div>
       <input
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+      value={text}
+      placeholder="escriba aca :v"
+      onChange={(e)=>setText (e.target.value)}
       />
-
+      
       <button
-        onClick={() => {
-          if (text === "") {
-            setCopy("No hay texto para copiar");
-          } else {
-            setCopy(text);
-          }
-        }}
-      >
-        Copiar
-      </button>
+      onClick={()=>{
+        if(text === (" ")){
+          setCopy ("no hay texto")
+        }else {
+          setCopy (text)
+        }
+      }}>
+        copiar
 
-      <p>Original: {text}</p>
-      <p>Copiado: {copy}</p>
+      </button>
+      <p>original:{text}</p>
+      <p>copiado:{copy}</p>
+
+
     </div>
-  );
-}
+
+  )
+
+
+
+
+
+
+
+};
+
